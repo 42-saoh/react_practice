@@ -1,10 +1,15 @@
 import axios, { AxiosRequestConfig } from 'axios' // 추가
-import { CustomAxiosInterface } from '../axiosInterface'
-import { CommonResponse } from '../customResponse'
+import { CustomAxiosInterface } from './axiosInterface'
+import { CommonResponse } from './customResponse'
 
 const client: CustomAxiosInterface = axios.create({
     baseURL: 'http://localhost:8080',
 })
+
+interface TodoPostDTO {
+  title: string | undefined;
+  content: string | undefined;
+}
 
 export const Get = async <T>(
   url: string,
@@ -16,21 +21,22 @@ export const Get = async <T>(
 
 export const Post = async <T>(
   url: string,
-  data?: any,
+  data?: TodoPostDTO,
   config?: AxiosRequestConfig
-): Promise<T> => {
+): Promise<number> => {
+  console.log(data);
   const response = await client.post<CommonResponse<T>>(url, data, config)
-  return response.data
+  return response.status;
 }
 
 //Put 방식
 export const Put = async <T>(
   url: string,
-  data?: any,
+  data?: TodoPostDTO,
   config?: AxiosRequestConfig
-): Promise<T> => {
+): Promise<number> => {
   const response = await client.put<CommonResponse<T>>(url, data, config)
-  return response.data
+  return response.status
 }
 
 //Delete 방식

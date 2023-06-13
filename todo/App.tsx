@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Overlay, OverlayPanel, GhostButton, Wrapper } from './AppStyle';
+import { Container, Overlay, OverlayPanel, GhostButton, Wrapper } from './style/AppStyle';
 
 export const App = () => {
   return (
