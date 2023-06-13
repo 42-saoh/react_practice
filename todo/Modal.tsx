@@ -94,7 +94,7 @@ export const Modal = (props : ContentDTO) => {
                     </>
                 ) : (
                     <>
-                        <Col> <Button variant="success" className="w-100 mb-2" onClick={e => {navigate("/")}}>추가</Button> </Col> 
+                        <Col> <Button variant="success" className="w-100 mb-2" onClick={e => {navigate("/add")}}>추가</Button> </Col> 
                         <Col> <Button variant="warning" className="w-100 mb-2" onClick={e => setEditing(true)}>수정</Button> </Col> 
                         <Col> <Button variant="danger" className="w-100 mb-2" onClick={props.closeModal}>취소</Button> </Col>
                     </>

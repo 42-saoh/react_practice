@@ -34,6 +34,7 @@ export const Todo = () => {
   };
 
   useEffect(() => {
+    if (showModal) return;
     getTodos().then(fetchedTodos => {
       setTodos(fetchedTodos);
     });
